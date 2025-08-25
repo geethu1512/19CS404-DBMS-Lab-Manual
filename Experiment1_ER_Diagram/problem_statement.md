@@ -51,7 +51,8 @@ Design a database for patient management, appointments, medical records, and bil
  Hospital 
 
 ## ER Diagram:
-<img width="817" height="487" alt="Hospital Building" src="https://github.com/user-attachments/assets/561e306f-6fa1-49a2-8372-4b4070127a92" />
+<img width="918" height="536" alt="Hospital Building" src="https://github.com/user-attachments/assets/b56db86b-7c67-4181-8212-f3366c990c1c" />
+
 
 ## Entities and Attributes:
  - Patient: PatientID, Name, Age, Gender

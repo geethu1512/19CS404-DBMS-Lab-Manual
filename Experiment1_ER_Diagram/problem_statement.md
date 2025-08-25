@@ -54,33 +54,55 @@ Design a database for patient management, appointments, medical records, and bil
 <img width="817" height="487" alt="Hospital Building" src="https://github.com/user-attachments/assets/561e306f-6fa1-49a2-8372-4b4070127a92" />
 
 ## Entities and Attributes:
--Patient: PatientID, Name, Age, Gender
+ - Patient: PatientID, Name, Age, Gender
 
--Doctor: DoctorID, Name, Specialization
+ - Doctor: DoctorID, Name, Specialization
 
--Ward: WardID, Capacity
+ - Ward: WardID, Capacity
 
--Treatment: TreatmentID, Description
+ - Treatment: TreatmentID, Description
 
--Appointment: AppointmentID, Date, Time
+ - Appointment: AppointmentID, Date, Time
 
 ## Relationships and Constraints:
--Contains: Ward – Patient (1:N)
+1.Contains (Ward – Patient)
 
--Consults: Patient – Doctor (M:N)
+ - A ward contains many patients.
 
--Assigned: Patient – Treatment (1:N)
+ - (1:N relationship → One ward can contain many patients, but each patient is assigned to one ward).
 
--Schedules: Doctor – Appointment (1:N)
+2.Consults (Patient – Doctor)
+
+ - A patient consults a doctor.
+
+ - (M:N relationship → One patient can consult multiple doctors, and one doctor can consult multiple patients).
+
+3.Assigned (Patient – Treatment)
+
+ - A treatment is assigned to a patient.
+
+ - (1:N relationship → One patient can have multiple treatments, but each treatment belongs to one patient).
+
+4.Schedules (Doctor – Appointment)
+
+ - A doctor schedules appointments.
+
+ - (1:N relationship → One doctor can schedule multiple appointments, but each appointment is with one doctor).
 
 
 ## Extension (Prerequisite / Billing):
 Billing can be an extra entity with BillID, Amount, PaymentMode linked to Patient & Treatment.
 
 ## Design Choices:
--Separate Appointment entity for scheduling.
--M:N for Patient–Doctor.
--1:N for Ward–Patient, Doctor–Appointment, and Patient–Treatment.
+ - Primary Keys (like Patient ID, Doctor ID, Appointment ID, etc.) ensure unique identification.
+
+ - Ward–Patient relation chosen as 1:N since wards have multiple patients but each patient belongs to one ward.
+
+ - Patient–Doctor relation chosen as M:N because patients may consult multiple doctors and doctors handle multiple patients.
+
+ - Separate Appointment entity was created to clearly store scheduling details instead of keeping them inside Doctor or Patient.
+
+ - Treatment entity was introduced to record specific procedures/medications linked to a patient.
 
 ## RESULT
 The ER diagram models hospital data with patients, doctors, wards, treatments, and appointments effectively.

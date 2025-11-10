@@ -46,8 +46,73 @@ Design a database for patient management, appointments, medical records, and bil
    - How you modeled prerequisites or billing.
 
 # ER Diagram Submission - GEETHU R
+## Scenario 1
+University Database
+## ER Diagram
+<img width="1368" height="588" alt="image" src="https://github.com/user-attachments/assets/cc98b9ee-3141-48e2-9362-21988e096ab9" />
 
-## Scenario Chosen:
+
+## Entities and Attributes:
+ - Student: StudentID, Name, DOB, RegisterNumber, PhoneNumber, EmailID, SubjectsEnrolled
+
+ - University: UniversityID, UniversityName
+
+ - Department: DepartmentID, DepartmentName
+
+ - Program: ProgramCode, ProgramName
+
+ - Faculties: FacultyID, Name, Subject
+
+ - Course: CourseCode, CourseName, Credits
+## Relationships and Constraints:
+1. Relationship: (Student – University)
+
+ - A student belongs to a university, and a university has many students.
+
+ - (M:N relationship → One student can be associated with multiple universities in collaborative programs, and each university can have many students).
+
+2. Is in: (Student – Department)
+
+ - A student is in a department.
+
+ - (M:N relationship → One student can belong to multiple departments if pursuing interdisciplinary studies, and each department has many students).
+
+3. Provides: (Department – Program)
+
+ - A department provides several programs.
+
+ - (M:N relationship → One department can offer multiple programs, and one program may be managed by multiple departments).
+
+4. Contains: (Program – Course)
+
+ - A program contains various courses.
+
+ - (M:N relationship → One program can contain multiple courses, and one course can be part of multiple programs).
+
+5. Handles: (Faculties – Course)
+
+ - Faculties handle courses.
+
+ - (M:N relationship → One faculty can handle multiple courses, and a course can be taught by multiple faculties).
+
+6. Has: (University – Faculties)
+
+ - A university has many faculties.
+
+ - (M:N relationship → One university can have multiple faculties, and a faculty member can work under multiple universities).
+## Extension (Prerequisite / Billing):
+ - Prerequisite: A self M:N relationship within Course to show which course must be completed before another.
+
+ - Payment: New entity with PaymentID, Amount, Mode linked 1:N with Student for billing and fee tracking.
+## Design Choices:
+ - Primary Keys (like StudentID, UniversityID, FacultyID) ensure unique identification.
+
+ - M:N relationships used where multiple associations exist (e.g., Program–Course, Student–Department).
+
+ - Payment entity added for clear financial tracking.
+
+ - Prerequisite relation supports course dependency rules.
+## Scenario 2:
  Hospital 
 
 ## ER Diagram:
